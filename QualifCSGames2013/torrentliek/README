@@ -1,0 +1,38 @@
+Le logiciel est écrit en python et ne dépend d'aucune bibliothèque externe.
+
+=== Tracker ===
+Pour démarrer le tracker: 
+	python tracker.py
+
+Par défaut, le tracker écoute sur localhost.  Pour spécifier une autre adresse:
+	python tracker.py 192.168.0.1
+
+
+
+=== Client ===
+Tous les fichiers se trouvent dans le répertoire "torrents".  
+
+Pour générer un uid pour un client:
+	python client.py keygen
+
+Pour obtenir le checksum d'un fichier (celui-ci doit être dans le répertoire toorents):
+	python client.py checksum <fichier>
+
+Pour partager des fichiers (ceux-ci doivent être dans le répertoire torrents):
+	python client.py serve <checksum1> <checksum2> ...
+
+Pour obtenir la liste des clients qui partagent un fichier en particulier:
+	python client.py find-client <checksum>
+	
+Pour télécharger un fichier:
+	python client.py get <checksum>
+
+Il est possible de spécifier l'adresse du tracker de la façon suivante:
+	python client.py tracker=192.168.0.1 <action> <arguments>
+	
+Il est aussi possible de spécifier quelle adresse utiliser pour partager un fichier:
+	python client.py server=192.168.0.2 serve <checksum1> ...
+
+Les deux options peuvent être utilisées ensemble:
+	python client.py tracker=ABC server=XYZ <action> <args>
+	 
